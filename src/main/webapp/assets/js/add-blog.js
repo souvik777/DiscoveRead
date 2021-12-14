@@ -7,7 +7,9 @@ blog_form.addEventListener('submit', async (e) => {
     e.stopPropagation();
     if (blog_form.checkValidity() === true) {
         console.log("YES");
-        console.log(document.getElementById('name'));
+        console.log(document.getElementById('name').value);
+        console.log(document.getElementById('description').value);
+        console.log("YES");
         let response = await fetch('api/blogs/register', {
             method: 'POST',
             headers: {
@@ -16,7 +18,7 @@ blog_form.addEventListener('submit', async (e) => {
             body: JSON.stringify({
                 name: document.getElementById('name').value,
 
-                email: document.getElementById('description').value,
+                description: document.getElementById('description').value,
             })
         }).then(
             response => {

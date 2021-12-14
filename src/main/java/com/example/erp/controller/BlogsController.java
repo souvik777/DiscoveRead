@@ -21,12 +21,12 @@ public class BlogsController {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response registerBlog(Blogs blog) throws URISyntaxException {
-        System.out.println(blog.getName()+"controller");
+        System.out.println(blog.getDescription()+"controller");
 
         {
 
             if(blogService.registerBlog(blog)){
-                System.out.println(blog.getName()+"controller2");
+                System.out.println(blog.getDescription()+"controller2");
                 return Response.ok().build();
             }else{
                 return Response.status(203).build();
